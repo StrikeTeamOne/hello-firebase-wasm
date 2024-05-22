@@ -49,7 +49,9 @@
             cargo-watch
             wasm-bindgen-cli
             firebase-tools
+            nodejs_20
             rsync
+            swc
           ]) ++ pkgs.lib.optionals pkgs.stdenv.isDarwin (with pkgs; [ libiconv ]);
         };
       });
