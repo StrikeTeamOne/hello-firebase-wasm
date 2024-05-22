@@ -17,7 +17,10 @@
         # Provides a `rustToolchain` attribute for Nixpkgs that we can use to
         # create a Rust environment
         (self: super: {
-          rustToolchain = super.rust-bin.stable.latest.default;
+          rustToolchain = super.rust-bin.stable.latest.default.override {
+            extensions = [ "rust-src" ];
+            targets = [ "wasm32-unknown-unknown" ];
+          };
         })
       ];
 
@@ -46,6 +49,7 @@
             cargo-watch
             wasm-bindgen-cli
             firebase-tools
+            rsync
           ]) ++ pkgs.lib.optionals pkgs.stdenv.isDarwin (with pkgs; [ libiconv ]);
         };
       });
