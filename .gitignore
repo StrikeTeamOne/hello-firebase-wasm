@@ -70,3 +70,5 @@ functions/lib
 target
 functions/src/wasm
 .firebaserc
+
+.direnv
